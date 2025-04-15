@@ -148,4 +148,11 @@ public class Solution
         double c = 10.2;
         int b = (int)c;
     }
+    private static void CastLongToInt()
+    {
+        long e = long.MaxValue;
+        int f = (int)e;
+        // e is 10, f is 10
+        //e is 9,223,372,036,854,775,807, f is -1
+    }
 }
