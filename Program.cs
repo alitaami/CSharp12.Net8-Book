@@ -153,6 +153,12 @@ public class Solution
         long e = long.MaxValue;
         int f = (int)e;
         // e is 10, f is 10
-        //e is 9,223,372,036,854,775,807, f is -1
+        //e is 9,223,372,036,854,775,807, f is -1 => for very big numbers it is not able to cast it in a true way!
+    }
+    private static void ConvertLongToInt()
+    {
+        double g = 9.8;
+        int h = System.Convert.ToInt32(g);
+        // g is 9.8, h is 10 => it rounds up the number
     }
 }
