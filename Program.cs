@@ -48,16 +48,24 @@ public class Solution
 
         switch (number)
         {
+
             case 1:
                 result = "One";
                 break;
-
+                 
             case 2:
                 result = "Two";
                 break;
 
             case 3:
                 result = "Three";
+                break;
+                
+            case 11 or 12 or 13:
+                result = "eleven or twelve or thirteen";
+                break;
+
+            default:
                 break;
         }
     }
