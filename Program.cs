@@ -52,7 +52,7 @@ public class Solution
             case 1:
                 result = "One";
                 break;
-                 
+
             case 2:
                 result = "Two";
                 break;
@@ -60,7 +60,7 @@ public class Solution
             case 3:
                 result = "Three";
                 break;
-                
+
             case 11 or 12 or 13:
                 result = "eleven or twelve or thirteen";
                 break;
@@ -168,5 +168,26 @@ public class Solution
         double g = 9.8;
         int h = System.Convert.ToInt32(g);
         // g is 9.8, h is 10 => it rounds up the number
+    }
+
+    private static void LearnOutKeyword(out string test1)
+    {
+        test1 = "test";
+    }
+
+    private static void LearnRefKeyword(ref string test2)
+    {
+        test2 = "test";
+    }
+
+    private static void LearnToUseRefAndOut()
+    {
+        // We don`t need to declare the variable before using it with out keyword
+        LearnOutKeyword(out string test1);
+
+
+        // We need to declare the variable before using it with ref keyword
+        var test2 = "test2";
+        LearnRefKeyword(ref test2);
     }
 }
