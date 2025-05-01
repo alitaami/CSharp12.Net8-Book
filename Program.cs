@@ -190,4 +190,45 @@ public class Solution
         var test2 = "test2";
         LearnRefKeyword(ref test2);
     }
+
+    public interface Interface
+    {
+        public void test();
+    }
+    public abstract class Abstract()
+    {
+        public abstract void test();
+        public virtual void test1()
+        {
+
+        }
+        public void test2()
+        {
+
+        }
+    }
+    public class UseInterfaceAndAbstract()
+    {
+        public class UseInterface : Interface
+        {
+            public void test()
+            {
+                // bla bla
+            }
+        }
+
+        public class UseAbstract : Abstract
+        {
+            public override void test()
+            {
+                // bla bla
+            }
+
+            // Optional ( We can ignore it and not override it)
+            public override void test1()
+            {
+                // bla bla
+            }
+        }
+    }
 }
