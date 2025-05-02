@@ -6,12 +6,39 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 
 public class Solution
-{
+{ 
+
     public static void Main(string[] args)
     {
 
     }
+    public void ConstAndReadOnly()
+    {
+        //const
 
+        //const int x = 5;	
+        //At compile-time	
+        //Immutable and cannot be changed ever	
+        //Universal constants like Pi, fixed values	
+        //Faster (inlined at compile time)	
+        //Implicitly static	
+        //Only primitive types, strings, or enums	
+
+
+        //------------------------------------------
+
+
+        //readonly
+
+        //At run-time (in constructor or at declaration)
+        //Can be assigned once, but at run-time
+        //Not static by default
+        //Slightly slower (accessed at run time)
+        //Instance-specific or runtime-known values
+        //readonly string path = GetPath();
+        //Any type (objects, lists, etc.)
+
+    }
     private static void UnaryOperators()
     {
         int c = 2;
@@ -268,7 +295,7 @@ public class Solution
 
         public enum Days
         {
-            [Display(Name ="Sunday")]
+            [Display(Name = "Sunday")]
             Sun = 1,
             [Display(Name = "Monday")]
             Mon = 2,
@@ -296,7 +323,6 @@ public class Solution
             Fri = 0b_0001_0000,
             Sat = 0b_0010_0000
         }
-
 
     }
 }
