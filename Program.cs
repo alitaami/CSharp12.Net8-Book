@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
@@ -264,5 +265,38 @@ public class Solution
             //type and is in the same assembly.Equivalent to a fictional access modifier named
             //internal_and_protected.This combination is only available with C# 7.2 or later.
         }
+
+        public enum Days
+        {
+            [Display(Name ="Sunday")]
+            Sun = 1,
+            [Display(Name = "Monday")]
+            Mon = 2,
+            [Display(Name = "Tuesday")]
+            Tue = 3,
+            [Display(Name = "Wednesday")]
+            Wed = 4,
+            [Display(Name = "Thursday")]
+            Thu = 5,
+            [Display(Name = "Friday")]
+            Fri = 6,
+            [Display(Name = "Saturday")]
+            Sat = 7
+        }
+
+        // A way to assign bytes for enum values
+        [Flags]
+        public enum Days_ : byte
+        {
+            Sun = 0b_0000_0000,
+            Mon = 0b_0000_0001,
+            Tue = 0b_0000_0010,
+            Wed = 0b_0000_0100,
+            Thu = 0b_0000_1000,
+            Fri = 0b_0001_0000,
+            Sat = 0b_0010_0000
+        }
+
+
     }
 }
