@@ -6,12 +6,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 
 public class Solution
-{ 
+{
 
     public static void Main(string[] args)
     {
 
     }
+
+    #region ConstAndReadOnly
     public void ConstAndReadOnly()
     {
         //const
@@ -39,6 +41,9 @@ public class Solution
         //Any type (objects, lists, etc.)
 
     }
+    #endregion
+
+    #region UnaryOperators usage
     private static void UnaryOperators()
     {
         int c = 2;
@@ -49,6 +54,9 @@ public class Solution
         int b = ++a; // first assign and then increment
         // a is 3 , b is 3
     }
+    #endregion
+
+    #region PatternMatching
     private static void PatternMatching()
     {
         object o = "3";
@@ -62,6 +70,9 @@ public class Solution
             Console.WriteLine("o is not an int so it cannot multiply!");
         }
     }
+    #endregion
+
+    #region SwitchCase
     private static void SwitchCase()
     {
         int number = Random.Shared.Next(minValue: 1, maxValue: 3);
@@ -100,6 +111,9 @@ public class Solution
                 break;
         }
     }
+    #endregion
+
+    #region Loops
     private static void Do_While()
     {
         string pass = "password";
@@ -131,6 +145,9 @@ public class Solution
         }
     }
 
+    #endregion
+
+    #region Arrays
     private static void TwoDimensionalArray()
     {
         string[,] array = new string[3, 3]
@@ -181,7 +198,9 @@ public class Solution
             [..] => "Any items in any order.", // [1, 5, 9] Or [100]
         };
     }
+    #endregion
 
+    #region Casting
     private static void CastDoubleToInt()
     {
         double c = 10.2;
@@ -200,7 +219,9 @@ public class Solution
         int h = System.Convert.ToInt32(g);
         // g is 9.8, h is 10 => it rounds up the number
     }
+    #endregion
 
+    #region Out and Ref
     private static void LearnOutKeyword(out string test1)
     {
         test1 = "test";
@@ -221,7 +242,10 @@ public class Solution
         var test2 = "test2";
         LearnRefKeyword(ref test2);
     }
+    #endregion
 
+
+    #region Interface & AbstractClass
     public interface Interface
     {
         public void test();
@@ -261,7 +285,9 @@ public class Solution
                 // bla bla
             }
         }
+        #endregion
 
+        #region InstantiatingClasses
         public class Person()
         {
 
@@ -271,7 +297,9 @@ public class Solution
         {
             Person bob = new(); // C# 9 or later
         }
+        #endregion
 
+        #region AccessModifiers
         public void AccessModifiers()
         {
             //private => The member is accessible inside the type only.This is the default.
@@ -292,7 +320,9 @@ public class Solution
             //type and is in the same assembly.Equivalent to a fictional access modifier named
             //internal_and_protected.This combination is only available with C# 7.2 or later.
         }
+        #endregion
 
+        #region Enums
         public enum Days
         {
             [Display(Name = "Sunday")]
@@ -323,6 +353,23 @@ public class Solution
             Fri = 0b_0001_0000,
             Sat = 0b_0010_0000
         }
+        #endregion
+
+        #region RequiredFields
+        public class RequiredFields()
+        {
+            public required string? Name;
+            public string? Title;
+        }
+        public void RequiredField()
+        {
+            var class_ = new RequiredFields()
+            {
+                Name = null, //We should assign sth to it even it`s nullable   
+                Title = "Mr."
+            };
+        }
+        #endregion
 
     }
 }
