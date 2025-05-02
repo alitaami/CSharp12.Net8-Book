@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 public class Solution
 {
@@ -240,6 +242,27 @@ public class Solution
         public void InstantiatingClasses()
         {
             Person bob = new(); // C# 9 or later
+        }
+
+        public void AccessModifiers()
+        {
+            //private => The member is accessible inside the type only.This is the default.
+
+            //internal => The member is accessible inside the type and any type in the same assembly.
+
+            //protected => The member is accessible inside the type and any type that inherits from the type.
+
+            //public => The member is accessible everywhere.
+
+            //internal protected =>
+            //The member is accessible inside the type, any type in the same assembly, and any
+            //type that inherits from the type.Equivalent to a fictional access modifier named
+            //internal_or_protected.
+
+            //private protected =>
+            //The member is accessible inside the type and any type that inherits from the
+            //type and is in the same assembly.Equivalent to a fictional access modifier named
+            //internal_and_protected.This combination is only available with C# 7.2 or later.
         }
     }
 }
