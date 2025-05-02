@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 
 public class Solution
 {
@@ -229,6 +230,16 @@ public class Solution
             {
                 // bla bla
             }
+        }
+
+        public class Person()
+        {
+
+        }
+
+        public void InstantiatingClasses()
+        {
+            Person bob = new(); // C# 9 or later
         }
     }
 }
