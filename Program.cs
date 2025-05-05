@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
@@ -369,7 +370,30 @@ public class Solution
                 Title = "Mr."
             };
         }
+
+
+        public class Book
+        {
+            public Book()
+            {
+
+            }
+
+            // [Required] is validating the data in runtime 
+            public Book([Required] string isbn, [Required] string title)
+            {
+
+            }
+
+            // [SetsRequiredMembers] is validating the data in compile time
+            [SetsRequiredMembers]
+            public Book(string isbn, string title, string s)
+            {
+
+            }
+        }
         #endregion
+
 
     }
 }
