@@ -394,6 +394,33 @@ public class Solution
         }
         #endregion
 
+        #region Tuples
 
+        public void Tuples()
+        {
+            (double, int) tuple1 = (4.5, 3);
+
+            (double t, int s) = (4.5, 3);
+
+            var tuple2 = (s: "s", d: "d");
+
+            // name our tuples
+            var (getTuple1, getTuple2) = tuple1;
+
+            // use them without naming them
+            var x = (tuple2.Item1, tuple2.Item2);
+
+            // You can define tuples with an arbitrary large number of elements
+            var tuple3 =
+            (1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12, 13, 14, 15, 16, 17, 18,
+            19, 20, 21, 22, 23, 24, 25, 26);
+
+            var test = tuple3.Item26;
+
+            (double, int, int) tuple4 = (4.5, 3, 5);
+        }
+
+        #endregion
     }
 }
