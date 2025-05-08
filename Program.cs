@@ -422,5 +422,21 @@ public class Solution
         }
 
         #endregion
+
+        #region LocalFunctions
+
+        public void LocalFunctions()
+        {
+            LocalFunction();
+
+            // Local functions are methods defined inside other methods
+            // They can be used to encapsulate logic that is only relevant to the containing method
+            // They can access variables from the containing method
+            void LocalFunction()
+            {
+                Console.WriteLine("This is a local function.");
+            }
+        }
+        #endregion
     }
 }
