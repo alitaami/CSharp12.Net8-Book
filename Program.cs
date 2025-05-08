@@ -438,5 +438,33 @@ public class Solution
             }
         }
         #endregion
+
+        #region Partial Classes
+
+        // Partial classes allow you to split the definition of a class into multiple files
+        partial class testPartial
+        {
+            public void test_()
+            {
+                Console.WriteLine("This is a partial class.");
+            }
+
+        }
+        partial class testPartial
+        {
+            public void test__()
+            {
+                Console.WriteLine("This is a partial class.");
+            }
+        }
+
+        public static void test_Partial()
+        {
+            var partial = new testPartial();
+
+            partial.test_();
+            partial.test__();
+        }
+        #endregion
     }
 }
