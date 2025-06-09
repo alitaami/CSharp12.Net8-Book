@@ -487,5 +487,25 @@ public class Solution
         }
         #endregion
 
+        #region Overloading 
+        public class Overloading()
+        {
+            // Overloading is the ability to define multiple methods with the same name but different parameters
+            // It can be used to create methods that perform similar operations on different types of data
+            int Add(int a, int b)
+            {
+                return a + b;
+            }
+            double Add(double a, double b)
+            {
+                return a + b;
+            }
+            string Add(string a, string b)
+            {
+                return a + b;
+            }
+        }
+        #endregion
+
     }
 }
