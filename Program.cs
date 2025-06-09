@@ -222,7 +222,7 @@ public class Solution
     }
     #endregion
 
-    #region Out and Ref
+    #region Out, Ref, In
     private static void LearnOutKeyword(out string test1)
     {
         test1 = "test";
@@ -231,6 +231,14 @@ public class Solution
     private static void LearnRefKeyword(ref string test2)
     {
         test2 = "test";
+    }
+
+    private static string LearnInKeyword(in string test3)
+    {
+        // The in keyword is used to pass a parameter by reference, but it is read-only.
+        // This means that the method cannot modify the value of the parameter.
+        // If we try to modify it, we will get a compile-time error.
+        return test3;
     }
 
     private static void LearnToUseRefAndOut()
@@ -242,6 +250,10 @@ public class Solution
         // We need to declare the variable before using it with ref keyword
         var test2 = "test2";
         LearnRefKeyword(ref test2);
+
+        // We need to declare the variable before using it with in keyword
+        var test3 = "test3";
+        var result = LearnInKeyword(test3);
     }
     #endregion
 
@@ -506,6 +518,7 @@ public class Solution
             }
         }
         #endregion
+
 
     }
 }
