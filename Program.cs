@@ -374,6 +374,10 @@ public class Solution
 
         public class Book
         {
+            public required string? Isbn { get; set; }
+            public required string? Title { get; set; }
+            public string Author { get; set; }
+
             public Book()
             {
 
@@ -382,14 +386,30 @@ public class Solution
             // [Required] is validating the data in runtime 
             public Book([Required] string isbn, [Required] string title)
             {
-
+                // assign them to the properties
             }
 
             // [SetsRequiredMembers] is validating the data in compile time
             [SetsRequiredMembers]
-            public Book(string isbn, string title, string s)
+            public Book(string? isbn, string? title, string? author)
             {
+                // assign them to the properties
+            }
+        }
 
+        public class TestRequiredFields
+        {
+            public void Test()
+            {
+                // This will throw an exception at runtime if the required fields are not set
+                var book = new Book()
+                {
+                    Isbn = "123-456-789",
+                    Title = "C# Programming"
+                };
+
+                // This will throw an exception at compile time if the required fields are not set
+                var book2 = new Book("123-456-789", "C# Programming", "");
             }
         }
         #endregion
@@ -466,5 +486,6 @@ public class Solution
             partial.test__();
         }
         #endregion
+
     }
 }
