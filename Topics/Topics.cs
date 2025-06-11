@@ -46,12 +46,12 @@ namespace LearnCSharp.Topics
         private static void UnaryOperators()
         {
             int c = 2;
-            int d = c++; // first assign and then increment
+            int d = c++; // post-increment: assign first, then increment
                          // c is 3, d is 2
 
             int a = 2;
-            int b = ++a; // first assign and then increment
-                         // a is 3 , b is 3
+            int b = ++a; // pre-increment: increment first, then assign
+                         // a is 3, b is 3
         }
         #endregion
 
