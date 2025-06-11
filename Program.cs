@@ -16,6 +16,8 @@ public class Solution
 
     }
 
+
+
     #region ConstAndReadOnly
     public void ConstAndReadOnly()
     {
@@ -530,6 +532,50 @@ public class Solution
         }
         #endregion
 
+        #region Records & DTOs
 
+        public class AnimalDTO
+        {
+            public string? Name { get; set; }
+        }
+        public record AnimalRecord(string? Name);
+
+        public class DTOs_vs_Records
+        {
+            public void Test()
+            {
+                #region Introduction
+
+                // DTOs are used to transfer data between layers of an application
+                // They are usually simple classes with properties and no methods
+                AnimalDTO animalDTO = new AnimalDTO() { Name = "Dog" };
+                animalDTO.Name = "Cat"; // DTOs can be mutable, meaning their properties can be changed after creation
+
+                // Records are immutable data structures that can be used to represent data
+                // They are similar to DTOs but have some additional features like value equality
+                AnimalRecord animalRecord = new AnimalRecord("Cat");
+                //animalRecord.Name = ""; => This will not compile because records are immutable, meaning their properties cannot be changed after creation
+
+                #endregion
+
+                #region Comparison
+                // DTOs are compared by reference, meaning two different instances with the same data are not equal
+                AnimalDTO animalDTO1 = new AnimalDTO() { Name = "Dog" };
+                AnimalDTO animalDTO2 = new AnimalDTO() { Name = "Dog" };
+
+                AnimalRecord animalRecord1 = new AnimalRecord("Dog");
+                AnimalRecord animalRecord2 = new AnimalRecord("Dog");
+
+                // This will return false because they compared by reference
+                bool areDTOsEqual = animalDTO1 == animalDTO2; // false
+
+                // This will return true because records are compared by value, meaning two instances with the same data are equal
+                bool areRecordsEqual = animalRecord1 == animalRecord2; // true
+
+                #endregion
+
+                #endregion
+            }
+        }
     }
 }
