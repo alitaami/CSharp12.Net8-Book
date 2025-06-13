@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LearnCSharp.Topics.Topics.UseInterfaceAndAbstract;
 using aliasedTuple = (string test1, string test2);
 
 namespace LearnCSharp.Topics
@@ -146,7 +147,7 @@ namespace LearnCSharp.Topics
 
         #endregion
 
-        #region Arrays
+        #region Arrays & Lists
         private static void TwoDimensionalArray()
         {
             string[,] array = new string[3, 3]
@@ -196,6 +197,35 @@ namespace LearnCSharp.Topics
                 [2, .. int[] others] => $"Starts with 2, then {others.Length} more numbers.", // [2, 9, 3]  
                 [..] => "Any items in any order.", // [1, 5, 9] Or [100]
             };
+        }
+
+        public class ListInitialization
+        {
+            public class Parent
+            {
+                public List<Person> persons1 = new();       // Field: single list instance
+                public List<Person> persons2 => new();      // Property: returns new list on each access
+            }
+
+            public class Person
+            {
+            }
+
+            private void Test()
+            {
+                int count = 0;
+
+                // Initializing a list with a new instance
+                var parent1 = new Parent();
+                parent1.persons1.Add(new Person());
+                count = parent1.persons1.Count; // returns 1
+
+                // Initializing a list with a new instance every time
+                var parent2 = new Parent();
+                parent2.persons2.Add(new Person());
+                count = parent2.persons2.Count; // returns 1
+                count = parent2.persons2.Count; // returns 0 next time — it's a new list!
+            }
         }
         #endregion
 
@@ -569,6 +599,7 @@ namespace LearnCSharp.Topics
                     #endregion
 
                     #endregion
+
                 }
             }
         }
