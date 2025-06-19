@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static LearnCSharp.Topics.Topics.UseInterfaceAndAbstract;
 using aliasedTuple = (string test1, string test2);
 
 namespace LearnCSharp.Topics
@@ -16,7 +10,7 @@ namespace LearnCSharp.Topics
         #region ConstAndReadOnly
         public void ConstAndReadOnly()
         {
-            //const
+            //const 
 
             //const int x = 5;	
             //At compile-time	
