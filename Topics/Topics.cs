@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
+using System.Security.Cryptography.X509Certificates;
+using static System.Collections.Specialized.BitVector32;
 using aliasedTuple = (string test1, string test2);
 
 namespace LearnCSharp.Topics
@@ -589,13 +592,56 @@ namespace LearnCSharp.Topics
 
                     // This will return true because records are compared by value, meaning two instances with the same data are equal
                     bool areRecordsEqual = animalRecord1 == animalRecord2; // true
-
-                    #endregion
-
-                    #endregion
-
                 }
+                #endregion
             }
+            #endregion
+
+            #region Important Interfaces 
+
+            public class ImportantInterfaces : IComparable, IComparer, IDisposable //and many others..
+            {
+                private bool disposedValue;
+
+                //This defines a comparison method that a secondary type implements to order or sort instances of a primary type.
+                public int Compare(object? x, object? y) => this.Compare(1, 2);
+
+                //This defines a comparison method that a type implements to order or sort its instances
+                public int CompareTo(object? obj) => this.CompareTo(new object[1, 2]);
+
+                //This defines a disposal method to release unmanaged resources more efficiently than waiting for a finalizer.See the Releasing unmanaged resources section later in this chapter for more details
+                protected virtual void Dispose(bool disposing)
+                {
+                    if (!disposedValue)
+                    {
+                        if (disposing)
+                        {
+                            // TODO: dispose managed state (managed objects)
+                        }
+
+                        // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                        // TODO: set large fields to null
+                        disposedValue = true;
+                    }
+                }
+
+                // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+                // ~ImportantInterfaces()
+                // {
+                //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+                //     Dispose(disposing: false);
+                // }
+
+                public void Dispose()
+                {
+                    // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+                    Dispose(disposing: true);
+                    GC.SuppressFinalize(this);
+                }
+
+                #endregion
+            }
+
         }
     }
 }
