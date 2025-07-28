@@ -654,6 +654,38 @@ namespace LearnCSharp.Topics
                     }
                 }
                 #endregion
+
+                #region Equality in ReferenceTypes and ValueTypes
+
+                public class EqualityInTypes
+                {
+                    public void EqualityExample()
+                    {
+                        int a = 5;
+                        int b = 5;
+                        bool areEqualValueTypes = a == b; // true
+
+                        // string literals are interned, so references are the same
+                        string str1 = "Hello";
+                        string str2 = "Hello";
+                        bool areEqualReferenceTypes = str1 == str2; // true (value and reference equal due to interning)
+
+                        var test1 = new EqualityTest(1);
+                        var test2 = new EqualityTest(1);
+                        var test3 = test1;
+                        bool areEqualReferenceTypes2 = test1 == test2; // false (different references)
+                        bool areEqualReferenceTypes2_1 = test1 == test3; // true (same references)
+
+                        // To compare by value, override Equals and GetHashCode or use 'record'
+                    }
+
+                    public class EqualityTest(int test)
+                    {
+                        public int Test { get; set; } = test;
+                    }
+                }
+
+                #endregion
             }
         }
     }
