@@ -553,13 +553,14 @@ namespace LearnCSharp.Topics
             }
             #endregion
 
-            #region Records & DTOs
+            #region RecordStructs & Records & DTOs
 
             public class AnimalDTO
             {
                 public string? Name { get; set; }
             }
             public record AnimalRecord(string? Name);
+            public record struct AnimalRecordStruct(string? Name);
 
             public class DTOs_vs_Records
             {
@@ -592,6 +593,12 @@ namespace LearnCSharp.Topics
 
                     // This will return true because records are compared by value, meaning two instances with the same data are equal
                     bool areRecordsEqual = animalRecord1 == animalRecord2; // true
+
+                    var a1 = new AnimalRecordStruct("Dog");
+                    var a2 = new AnimalRecordStruct("Dog");
+
+                    Console.WriteLine(a1 == a2); // ✅ true — value-based equality
+
                 }
                 #endregion
             }
