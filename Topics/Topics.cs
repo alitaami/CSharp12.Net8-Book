@@ -640,8 +640,21 @@ namespace LearnCSharp.Topics
                 }
 
                 #endregion
-            }
 
+                #region Boxing & UnBoxing
+                public class BoxingAndUnboxing
+                {
+                    // Boxing is the process of converting a value type to an object type
+                    // Unboxing is the process of converting an object type back to a value type
+                    public void BoxingAndUnboxingExample()
+                    {
+                        int x = 4;
+                        object o = x; // Boxing: converting int to object
+                        int y = (int)o; // Unboxing: converting object back to int
+                    }
+                }
+                #endregion
+            }
         }
     }
 }
