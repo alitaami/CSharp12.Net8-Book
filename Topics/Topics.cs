@@ -597,7 +597,7 @@ namespace LearnCSharp.Topics
                     var a1 = new AnimalRecordStruct("Dog");
                     var a2 = new AnimalRecordStruct("Dog");
 
-                    Console.WriteLine(a1 == a2); // ✅ true — value-based equality
+                    bool areRecordStructsEqual = a1 == a2; // true
 
                 }
                 #endregion
@@ -693,6 +693,51 @@ namespace LearnCSharp.Topics
                 }
 
                 #endregion
+
+                #region Nullability
+
+                public class nullability
+                {
+                    public int? id { get; set; }
+                    public string? test { get; set; } //new
+                    public string test2 { get; set; } //old - we get nullability warn
+                }
+
+                public void _nullability()
+                {
+                    var n = new nullability();
+                    int? length;
+
+                    // old
+                    if (!(n is null)) { }
+
+                    //new
+                    if (n is not null) { }
+
+
+                    // The following throws a NullReferenceException.
+                    length = n.test.Length;
+
+                    // Instead of throwing an exception, null is assigned.
+                    length = n.test?.Length;
+
+                    // And aldo we can use the null-coalescing operator to provide a default value.
+                    length = n.test?.Length ?? 0;
+
+                }
+                public void _nullability2(nullability nullability)
+                {
+                    // old
+                    if (nullability is null)
+                    {
+                        throw new ArgumentNullException(paramName: nameof(nullability));
+                    }
+
+                    // new - C# 10
+                    ArgumentNullException.ThrowIfNull(nullability);
+                } 
+                #endregion
+
             }
         }
     }
