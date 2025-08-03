@@ -327,7 +327,15 @@ namespace LearnCSharp.Topics
             #region InstantiatingClasses
             public class Person()
             {
+                public int name { get; set; }
 
+                public void WriteToConsole()
+                {
+                }
+                public void Greet()
+                {
+
+                }
             }
 
             public void InstantiatingClasses()
@@ -735,7 +743,52 @@ namespace LearnCSharp.Topics
 
                     // new - C# 10
                     ArgumentNullException.ThrowIfNull(nullability);
-                } 
+                }
+                #endregion
+
+                #region Extending classes to add functionality
+                public class Employee : Person
+                {
+                    public int age { get; set; }
+
+                    // Hiding the function in base class
+                    public new void WriteToConsole()
+                    {
+                    }
+                    public void Work()
+                    {
+
+                    }
+                }
+
+                public void ExtendingClasses()
+                {
+                    // --- Hiding Members ---
+
+                    Person obj = new Employee();  // Upcasting
+                    obj.WriteToConsole(); // Calls BaseClass version!
+
+                    Employee obj2 = new Employee();
+                    obj2.WriteToConsole(); // Calls DerivedClass version!
+
+
+                    // --- Upcasting & Downcasting
+
+                    // Allowed, because Greet() is in Person
+                    obj.Greet();
+                    obj2.Greet();
+
+                    // ❌ Error: Work() is not defined in Person
+                    // obj.Work();    
+                    
+                    Employee emp1 = (Employee)obj; // Downcasting
+                    emp1.Work();
+
+
+                    Employee emp2 = obj as Employee; // Downcasting
+                    if (emp2 != null)
+                        emp2.Work();
+                }
                 #endregion
 
             }
