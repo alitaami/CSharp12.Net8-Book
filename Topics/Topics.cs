@@ -747,7 +747,14 @@ namespace LearnCSharp.Topics
                 #endregion
 
                 #region Extending classes to add functionality
-                public class Employee : Person
+
+                // We can not inherit from it because of 'Sealed' keyword
+                public sealed class Customer
+                {
+
+                }
+
+                public class Employee : Person 
                 {
                     public int age { get; set; }
 
