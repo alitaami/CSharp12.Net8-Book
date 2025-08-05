@@ -759,6 +759,11 @@ namespace LearnCSharp.Topics
                     {
 
                     }
+                    public void this_and_base()
+                    {
+                        base.WriteToConsole(); // BaseClass one
+                        this.WriteToConsole(); // DerivedClass one
+                    }
                 }
 
                 public void ExtendingClasses()
