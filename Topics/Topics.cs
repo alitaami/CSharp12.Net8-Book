@@ -327,7 +327,7 @@ namespace LearnCSharp.Topics
             #region InstantiatingClasses
             public class Person()
             {
-                public int name { get; set; }
+                public string name { get; set; }
 
                 public void WriteToConsole()
                 {
@@ -754,7 +754,7 @@ namespace LearnCSharp.Topics
 
                 }
 
-                public class Employee : Person 
+                public class Employee : Person
                 {
                     public int age { get; set; }
 
@@ -792,7 +792,7 @@ namespace LearnCSharp.Topics
 
                     // ❌ Error: Work() is not defined in Person
                     // obj.Work();    
-                    
+
                     Employee emp1 = (Employee)obj; // Downcasting
                     emp1.Work();
 
@@ -800,6 +800,33 @@ namespace LearnCSharp.Topics
                     Employee emp2 = obj as Employee; // Downcasting
                     if (emp2 != null)
                         emp2.Work();
+                }
+                #endregion
+
+                #region Inheriting exceptions
+
+                public class PersonException : Exception
+                {
+                    public PersonException() : base()
+                    {
+
+                    }
+                    public PersonException(string? message) : base(message)
+                    {
+                    }
+
+                    public PersonException(string? message, Exception? innerException) : base(message, innerException)
+                    {
+                    }
+
+                }
+
+                public void TestPersonException()
+                {
+                    var person = new Person();
+
+                    if (person.name is null)
+                        throw new PersonException("person name is null");
                 }
                 #endregion
 
