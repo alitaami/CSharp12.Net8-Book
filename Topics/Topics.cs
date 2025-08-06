@@ -830,6 +830,48 @@ namespace LearnCSharp.Topics
                 }
                 #endregion
 
+                #region Mutability and records
+
+                // A mutable record class.
+                public record class C1
+                {
+                    public string? Name { get; set; }
+                }
+
+                // An immutable record class.
+                public record class C2(string? Name);
+
+                // A mutable record struct.
+                public record struct S1
+                {
+                    public string? Name { get; set; }
+                }
+
+                // Another mutable record struct.
+                public record struct S2(string? Name);
+
+                // An immutable record struct.
+                public readonly record struct S3(string? Name);
+
+                public void Mutability()
+                {
+                    C1 c1 = new() { Name = "Bob" };
+                    c1.Name = "Bill";
+
+                    C2 c2 = new(Name: "Bob");
+                    // c2.Name = "Bill"; // Compiler Error - CS8852: Init-only property.
+
+                    S1 s1 = new() { Name = "Bob" };
+                    s1.Name = "Bill";
+
+                    S2 s2 = new(Name: "Bob");
+                    s2.Name = "Bill";
+
+                    S3 s3 = new(Name: "Bob");
+                    // s3.Name = "Bill"; // Compiler Error - CS8852: Init-only property.
+
+                }
+                #endregion
             }
         }
     }
