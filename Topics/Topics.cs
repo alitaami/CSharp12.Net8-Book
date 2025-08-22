@@ -877,6 +877,7 @@ namespace LearnCSharp.Topics
 
                 public delegate void VoidDelegate(string message);
                 public delegate string StringDelegate(string message);
+                public delegate int CalcDelegate(int num1, int num2);
 
                 static void PrintMessage(string message)
                 {
@@ -895,6 +896,20 @@ namespace LearnCSharp.Topics
                 static string PrintMessage4(string message)
                 {
                     return message;
+                }
+                static int Multiply(int num1, int num2)
+                {
+                    return num1 * num2;
+                }
+                
+                static int Add(int num1, int num2)
+                {
+                    return num1 + num2;
+                }
+
+                static int RunCalculation(CalcDelegate calculation, int num1, int num2)
+                {
+                    return calculation(num1, num2);
                 }
 
                 public class TestDelegates
@@ -916,6 +931,10 @@ namespace LearnCSharp.Topics
                         // Multicast delegate
                         StringDelegate multiCastDelegate = PrintMessage2;
                         multiCastDelegate += PrintMessage4;
+                        
+                        // Passing method as parameters to another methods
+                        RunCalculation(Multiply, 2, 3); // res => 6
+                        RunCalculation(Add, 2, 3); // res => 5
 
                         #region Built-In Delegates
 
