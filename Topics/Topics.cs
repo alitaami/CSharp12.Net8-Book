@@ -872,6 +872,70 @@ namespace LearnCSharp.Topics
 
                 }
                 #endregion
+
+                #region Delegates & Events
+
+                public delegate void VoidDelegate(string message);
+                public delegate string StringDelegate(string message);
+
+                static void PrintMessage(string message)
+                {
+                    Console.WriteLine(message);
+                }
+
+                static string PrintMessage2(string message)
+                {
+                    return message;
+                }
+
+                static bool PrintMessage3(string message)
+                {
+                    return message.Length > 0;
+                }
+                static string PrintMessage4(string message)
+                {
+                    return message;
+                }
+
+                public class TestDelegates
+                {
+                    public void Test()
+                    {
+                        // Delegates :
+                        // A delegate is a type that represents references to methods with a specific parameter list and return type.
+                        // They are pointers to methods, allowing methods to be passed as parameters or assigned to variables.
+
+                        // Creating a delegate instance
+                        VoidDelegate voidDelegate = PrintMessage;
+                        voidDelegate("Hello, World!");     // Invoking the delegate
+
+                        // Creating a delegate instance
+                        StringDelegate stringDelegate = PrintMessage2;
+                        string myDelegate2Result = stringDelegate("Hello, World!");
+
+                        // Multicast delegate
+                        StringDelegate multiCastDelegate = PrintMessage2;
+                        multiCastDelegate += PrintMessage4;
+
+                        #region Built-In Delegates
+
+                        // Action delegate -> for methods that return void
+                        Action<string> action = PrintMessage;
+                        action("test");
+
+                        // Func delegate -> for methods that return a value
+                        Func<string, string> func = PrintMessage2;
+                        string funcResult = func("test");
+
+                        // Predicate delegate -> for methods that return a boolean value
+                        Predicate<string> predicate = PrintMessage3;
+                        bool predicateResult = predicate("test");
+
+                        #endregion
+
+                    }
+                }
+                #endregion
             }
         }
     }
